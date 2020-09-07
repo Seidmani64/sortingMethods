@@ -30,6 +30,8 @@ int main()
     }
     vector<float> arr_s(arr_f);
     vector<float> arr_b(arr_f);
+    vector<float> arr_i(arr_f);
+    vector<float> arr_m(arr_f);
 
     // create instance of SelectionSort
     DECLARE_TIMING(t);
@@ -46,6 +48,22 @@ int main()
     bblsort.sort(arr_b);
     STOP_TIMING(t2);
     SHOW_TIMING(t2, "BubbleSort");
+
+    // create instance of InsertionSort
+    DECLARE_TIMING(t3);
+    START_TIMING(t3);
+    InsertionSort<float> inssort;
+    inssort.sort(arr_i);
+    STOP_TIMING(t3);
+    SHOW_TIMING(t3, "InsertionSort");
+
+    // create instance of MergeSort
+    DECLARE_TIMING(t4);
+    START_TIMING(t4);
+    MergeSort<float> mrgsort;
+    mrgsort.sort(arr_m);
+    STOP_TIMING(t4);
+    SHOW_TIMING(t4, "MergeSort");
 
 
     // use std::sort
@@ -66,6 +84,18 @@ int main()
         cout << "The implementation of bubble sort is correct!" << endl;
     else
         cout <<"The implementation of bubble sort is incorrect."<<endl;
-    
+
+    // check if insertionsort is equal
+    if (arr_i == arr_s)
+        cout << "The implementation of insertion sort is correct!" << endl;
+    else
+        cout <<"The implementation of insertion sort is incorrect."<<endl;
+
+    // check if mergesort is equal
+    if (arr_m == arr_s)
+        cout << "The implementation of merge sort is correct!" << endl;
+    else
+        cout <<"The implementation of merge sort is incorrect."<<endl;
+
     return 0;
 }

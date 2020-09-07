@@ -19,6 +19,6 @@
 #define GET_TIMING(s)		    	(double)timeDiff_##s.count()
 #define GET_AVERAGE_TIMING(s)		(double)(countTally_##s ? (double)timeTally_##s / ((double)countTally_##s)  : 0)
 #define GET_TIMING_COUNT(s)  		(int)(countTally_##s)
-#define SHOW_TIMING(s, msg)	    	std::cout << msg << " time: \t" <<  GET_TIMING(s) << " seconds (" << GET_TIMING(s) / 60 << "min)\t" << GET_AVERAGE_TIMING(s) << " sec average across " << GET_TIMING_COUNT(s) << " runs." << std::endl
+#define SHOW_TIMING(s, msg)	    	std::cout << msg << " time: \t" <<  GET_TIMING(s) << " seconds (" << GET_TIMING(s) * 1000 << " ms)\t" << GET_AVERAGE_TIMING(s) << " sec average across " << GET_TIMING_COUNT(s) << " runs." << std::endl
 
 #endif
